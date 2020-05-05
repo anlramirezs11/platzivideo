@@ -8,8 +8,11 @@ import plusIcon from '../assets/static/plus-icon.png';
 import removeIcon from '../assets/static/remove-icon.png'
 
 const CarouselItem = (props) => {
-  const { id, cover, title, year, contentRating, duration, isList } = props;
+  const { id, cover, title, year, contentRating, duration, isList, myList } = props;
   const handleSetFavorite = () => {
+    if (myList.find(item => item.id === id)) {
+      alert("Este video ya se encuentra agregado en favoritos")
+    }
     props.setFavorite({
       id, cover, title, year, contentRating, duration
     })
@@ -30,7 +33,7 @@ const CarouselItem = (props) => {
             alt="Play Icon"
           />
           {!isList ?
-            <img
+            < img
               className="carousel-item__details--img"
               src={plusIcon}
               alt="Plus Icon"
@@ -67,5 +70,11 @@ const mapDispatchToProps = {
   deleteFavorite
 }
 
+const mapStateToProps = state => {
+  return {
+    myList: state.myList,
+  };
+};
 
-export default connect(null, mapDispatchToProps)(CarouselItem);
+
+export default connect(mapStateToProps, mapDispatchToProps)(CarouselItem);
