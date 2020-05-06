@@ -4,7 +4,6 @@ Tecnologías usadas:
  * [**React**](https://es.reactjs.org/)
  * [**React Router**](https://es.redux.js.org/docs/avanzado/uso-con-react-router.html)
  * [**Redux**](https://es.redux.js.org/)
- * [**json-server**](https://www.npmjs.com/package/json-server)
 
 ### **Pasos para Ejecutar en entorno local**
 
@@ -23,12 +22,7 @@ Tecnologías usadas:
      npm install
 ```
 
-* Ejecutar el servidor de los datos
-```shell
-     json-server initialState.json
-```
-
-* En otra terminal ejecutar el proyecto
+* Ejecutar el proyecto
 ```shell
     npm run start
 ```
