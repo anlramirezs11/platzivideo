@@ -30,9 +30,9 @@ const reducer = (state, action) => {
             }
         case 'SEARCH_VIDEO':
             let search
-            search = state.trends.filter(items => items.title.toLowerCase().includes(action.payload.busqueda.toLowerCase()) === true)
-            search = search.concat(state.originals.filter(items => items.title.toLowerCase().includes(action.payload.busqueda.toLowerCase()) === true))
-            search = search.concat(state.myList.filter(items => items.title.toLowerCase().includes(action.payload.busqueda.toLowerCase()) === true))
+            search = state.trends.filter(items => items.title.toLowerCase().includes(action.payload.toLowerCase()) === true)
+            search = search.concat(state.originals.filter(items => items.title.toLowerCase().includes(action.payload.toLowerCase()) === true))
+            search = search.concat(state.myList.filter(items => items.title.toLowerCase().includes(action.payload.toLowerCase()) === true))
             search.forEach((item, index) => {
                 search.forEach((item2, index2) => {
                     if (index != index2 && item.id === item2.id)

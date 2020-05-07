@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { searchVideo } from '../actions';
 import ClassNames from 'classnames';
@@ -10,17 +10,8 @@ const Search = props => {
     isHome
   });
 
-  const [input, setValues] = useState({
-    busqueda: '',
-  });
-
   const handleInput = event => {
-    setValues({
-      ...input,
-      [event.target.name]: event.target.value
-    })
-    props.searchVideo(input)
-
+    props.searchVideo(event.target.value)
   }
 
   return (
