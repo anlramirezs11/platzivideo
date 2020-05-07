@@ -8,6 +8,7 @@ import reducer from './reducers';
 import { initalState } from '../initialState.json';
 initalState.user = {};
 initalState.playing = {};
+initalState.search = {};
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__ &&
     window.__REDUX_DEVTOOLS_EXTENSION__();
@@ -15,7 +16,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__ &&
 const store = createStore(reducer, initalState, composeEnhancers);
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <App/>
     </Provider>,
     document.getElementById('app')
 );

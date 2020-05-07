@@ -28,12 +28,27 @@ const reducer = (state, action) => {
                 ...state,
                 user: action.payload
             }
+        case 'SEARCH_VIDEO':
+            let search
+            search = state.trends.filter(items => items.title.toLowerCase().includes(action.payload.busqueda.toLowerCase()) === true)
+            search = search.concat(state.originals.filter(items => items.title.toLowerCase().includes(action.payload.busqueda.toLowerCase()) === true))
+            search = search.concat(state.myList.filter(items => items.title.toLowerCase().includes(action.payload.busqueda.toLowerCase()) === true))
+            search.forEach((item, index) => {
+                search.forEach((item2, index2) => {
+                    if (index != index2 && item.id === item2.id)
+                        search[index2] = "";
+                });
+            });
+            return {
+                ...state,
+                search: search.filter(item => item !== "")
+            }
         case 'GET_VIDEO_SOURCE':
             return {
                 ...state,
                 playing: state.trends.find(items => items.id === Number(action.payload))
-                || state.originals.find(items => items.id === Number(action.payload))
-                || []
+                    || state.originals.find(items => items.id === Number(action.payload))
+                    || []
             }
         default:
             return state;
