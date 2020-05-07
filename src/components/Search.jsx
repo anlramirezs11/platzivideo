@@ -5,7 +5,7 @@ import ClassNames from 'classnames';
 import '../assets/styles/components/Search.scss';
 
 const Search = props => {
-  const { isHome, search } = props; 
+  const { isHome } = props; 
   const inputStyle = ClassNames('input', {
     isHome
   });
@@ -32,10 +32,5 @@ const mapDispatchToProps = {
   searchVideo,
 };
 
-const mapStateToProps = state => {
-  return {
-    search: state.search,
-  };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Search);
+export default connect(null, mapDispatchToProps)(Search);

@@ -6,10 +6,23 @@ import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem';
 import '../assets/styles/App.scss';
 
-const Home = ({ myList, trends, originals }) => {
+const Home = ({ myList, trends, originals, search}) => {
   return (
     <>
       <Search isHome/>
+      { search.length >0 &&
+        <Categories title="Resultado de la busqueda">
+          <Carousel>
+            {search.map(item =>
+              <CarouselItem 
+                key={item.id} 
+                {...item} 
+                search={true}
+              />
+            )}
+          </Carousel>
+        </Categories>
+      }
       { myList.length >0 &&
         <Categories title="Mi Lista">
           <Carousel>
@@ -46,6 +59,7 @@ const mapStateToProps = state => {
     myList: state.myList,
     trends: state.trends,
     originals: state.originals,
+    search: state.search,
   };
 };
 

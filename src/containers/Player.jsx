@@ -16,7 +16,7 @@ const Player = props => {
 
     return hasPlaying ? (
         <div className="Player">
-            <video controls autoplay>
+            <video controls autoPlay>
                 <source
                     src={props.playing.source}
                     type="video/mp4"
