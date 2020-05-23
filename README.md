@@ -5,6 +5,9 @@ Tecnologías usadas:
  * [**React Router**](https://es.redux.js.org/docs/avanzado/uso-con-react-router.html)
  * [**Redux**](https://es.redux.js.org/)
 
+Link donde está desplegado es este: https://platzivideo.netlify.app/login, para loguearse ingresar cualquier correo y en el campo de contraseña ingresa lo que sea.
+
+
 ### **Pasos para Ejecutar en entorno local**
 
 * Clonar el proyecto del repositorio de git
